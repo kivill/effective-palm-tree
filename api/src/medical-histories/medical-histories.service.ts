@@ -21,13 +21,18 @@ export class MedicalHistoriesService {
 
   async create(createMedicalHistoryDto: CreateMedicalHistoryDto) {
     const newHistory = new this.medicalHistoryModel(createMedicalHistoryDto);
-    newHistory.deathRisk = Math.floor(Math.random() * 100) + 1;
-    const newDiagnosis = new this.diagnosisModel({
-      diagnosis: 'кашель',
-      influence: 10,
-      actions: '',
-    });
-    newHistory.diagnoses.push(newDiagnosis);
+    if (!newHistory.deathRisk) {
+      newHistory.deathRisk = Math.floor(Math.random() * 100) + 1;
+    }
+    if (newHistory.diagnoses.length == 0) {
+      const newDiagnosis = new this.diagnosisModel({
+        diagnosis: 'кашель',
+        influence: 10,
+        actions: '',
+      });
+      newHistory.diagnoses.push(newDiagnosis);
+    }
+
     return await newHistory.save();
   }
 
