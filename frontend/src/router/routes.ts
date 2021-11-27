@@ -8,12 +8,17 @@ const routes: RouteRecordRaw[] = [
       {
         path: '',
         name: 'home',
-        redirect: '/history'
+        redirect: '/history',
       },
       {
         path: 'history',
         name: 'history',
-        component: () => import('pages/History.vue')
+        component: () => import('pages/History.vue'),
+      },
+      {
+        path: 'history/create',
+        name: 'create-history',
+        component: () => import('pages/HistoryCreate.vue'),
       },
     ],
   },

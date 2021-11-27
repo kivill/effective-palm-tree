@@ -11,7 +11,7 @@ interface History {
   _id?: string;
   history: string;
   deathRisk: number;
-  diagnoses: [Diagnosis];
+  diagnoses: Diagnosis[];
 }
 
 interface HistoryState {
@@ -27,6 +27,7 @@ const state = reactive<HistoryState>({
   histories: [],
   currentHistory: {
     history: '',
+    diagnoses: [],
   },
 });
 
@@ -49,16 +50,17 @@ export const useHistory = () => {
         state.isHistoryLoading = false;
       });
   };
-  const addHistory = () => {
+  const createHistory = () => {
     state.isCurrentLoading = true;
     api
-      .post('/medical-histories', state.currentHistory)
-      .then(() => {
+      .post<History>('/medical-histories', state.currentHistory)
+      .then((data) => {
         Notify.create({
           type: 'positive',
           message: 'История добавлена',
           position: 'bottom-right',
         });
+        state.currentHistory = data.data;
         getAllHistory();
       })
       .catch((error: AxiosError) => {
@@ -74,7 +76,7 @@ export const useHistory = () => {
   };
   return {
     getAllHistory,
-    addHistory,
+    createHistory,
     ...toRefs(state),
   };
 };

@@ -9,7 +9,7 @@
       :pagination="initialPagination"
     >
       <template v-slot:top-right>
-        <q-btn color="primary" label="Добавить" dense to="/histories" />
+        <q-btn color="primary" label="Добавить" dense to="/history/create" />
       </template>
       <template v-slot:header="props">
         <q-tr :props="props">
