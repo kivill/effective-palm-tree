@@ -58,7 +58,6 @@ export const useHistory = () => {
         Notify.create({
           type: 'positive',
           message: 'История добавлена',
-          position: 'bottom-right',
         });
         state.currentHistory = data.data;
         getAllHistory();
