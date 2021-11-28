@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { HttpModule } from '@nestjs/axios';
 import { MongooseModule } from '@nestjs/mongoose';
 import {
   MedicalHistory,
@@ -21,6 +22,7 @@ import { MedicalHistoriesController } from './medical-histories.controller';
         schema: DiagnosisSchema,
       },
     ]),
+    HttpModule,
   ],
   controllers: [MedicalHistoriesController],
   providers: [MedicalHistoriesService],

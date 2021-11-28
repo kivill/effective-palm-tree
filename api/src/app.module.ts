@@ -15,6 +15,5 @@ import { MedicalHistoriesModule } from './medical-histories/medical-histories.mo
   ],
   controllers: [AppController],
   providers: [AppService],
-
 })
-export class AppModule { }
+export class AppModule {}
