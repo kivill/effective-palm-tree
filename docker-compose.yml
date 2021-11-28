@@ -9,6 +9,11 @@ services:
     ports:
       - "8888:8888"
 
+  classifier:
+    container_name: classifier
+    restart: always
+    build: ./classifier
+
   api:
     container_name: api
     depends_on:
