@@ -50,8 +50,22 @@
         <q-tr v-show="props.expand" :props="props">
           <q-td colspan="100%">
             <div class="text-left">
-              <q-input v-model="props.row.history" filled autogrow />
-              <Diagnoses :diagnoses="props.row.diagnoses" />
+              <div class="row q-pa-md">
+                <div class="col">
+                  <q-input v-model="props.row.history" outlined autogrow />
+                </div>
+              </div>
+              <div class="row q-pa-md">
+                <div class="col">
+                  <Diagnoses :diagnoses="props.row.diagnoses" />
+                </div>
+              </div>
+
+              <div class="row q-pa-md">
+                <div class="col">
+                  Риск смертельного исхода - {{ props.row.deathRisk }}%
+                </div>
+              </div>
             </div>
           </q-td>
         </q-tr>

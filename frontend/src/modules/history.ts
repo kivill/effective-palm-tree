@@ -73,9 +73,16 @@ export const useHistory = () => {
         state.isCurrentLoading = false;
       });
   };
+  const setCurrentHistoryEmpty = (): void => {
+    state.currentHistory = {
+      history: '',
+      diagnoses: [],
+    };
+  };
   return {
     getAllHistory,
     createHistory,
+    setCurrentHistoryEmpty,
     ...toRefs(state),
   };
 };

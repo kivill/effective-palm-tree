@@ -2,7 +2,12 @@
   <q-page class="q-pa-md">
     <div class="row q-pa-md">
       <div class="col">
-        <q-input v-model="currentHistory.history" filled autogrow />
+        <q-input
+          v-model="currentHistory.history"
+          outlined
+          label="Введите анамнез"
+          autogrow
+        />
       </div>
     </div>
     <div v-if="currentHistory.diagnoses.length != 0" class="row q-pa-md">
@@ -16,12 +21,21 @@
       </div>
     </div>
     <div class="row q-pa-md">
-      <div class="col">
+      <div class="col" v-if="currentHistory.diagnoses.length == 0">
         <q-btn
           color="primary"
           label="определить диагнозы"
           dense
           @click="createHistory"
+        />
+      </div>
+      <div class="col" v-else>
+        <q-btn
+          color="primary"
+          label="вернуться ко всем историям"
+          dense
+          @click="setCurrentHistoryEmpty()"
+          to="/history"
         />
       </div>
     </div>
@@ -39,10 +53,16 @@ export default defineComponent({
     Diagnoses,
   },
   setup() {
-    const { createHistory, currentHistory, isCurrentLoading } = useHistory();
+    const {
+      createHistory,
+      currentHistory,
+      setCurrentHistoryEmpty,
+      isCurrentLoading,
+    } = useHistory();
     return {
       currentHistory,
       isCurrentLoading,
+      setCurrentHistoryEmpty,
       createHistory,
     };
   },
