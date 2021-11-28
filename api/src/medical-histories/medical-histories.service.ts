@@ -43,7 +43,6 @@ export class MedicalHistoriesService {
       })
       .pipe(map((resp) => resp.data))
       .toPromise();
-
     newHistory.deathRisk = prediction.predictions[1] * 100;
     const newDiagnosis1 = new this.diagnosisModel({
       diagnosis: 'кашель + головная боль',

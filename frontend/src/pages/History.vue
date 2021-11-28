@@ -63,7 +63,8 @@
 
               <div class="row q-pa-md">
                 <div class="col">
-                  Риск смертельного исхода - {{ props.row.deathRisk }}%
+                  Риск смертельного исхода -
+                  {{ props.row.deathRisk.toFixed(2) }}%
                 </div>
               </div>
             </div>
@@ -97,6 +98,7 @@ export default defineComponent({
       {
         name: 'deathRisk',
         field: 'deathRisk',
+        format: (val: number) => `${val.toFixed(2)} %`,
         label: 'Риск смерти',
         align: 'left',
       },

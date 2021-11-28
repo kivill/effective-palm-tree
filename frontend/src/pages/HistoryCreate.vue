@@ -17,7 +17,7 @@
     </div>
     <div v-if="currentHistory.deathRisk" class="row q-pa-md">
       <div class="col">
-        Риск смертельного исхода - {{ currentHistory.deathRisk }}%
+        Риск смертельного исхода - {{ currentHistory.deathRisk.toFixed(2) }}%
       </div>
     </div>
     <div class="row q-pa-md">
