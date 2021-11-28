@@ -1,25 +1,18 @@
-<h4>Реализованная функциональность</h4>
-<ul>
-    <li>Сбор анамнезов</li>
-    
-</ul>
-
 <h4>Особенность проекта в следующем:</h4>
 <ul>
-    <li>Фича 1</li>
-    <li>Фича 2</li>
-    <li>Фича 3</li>
+    <li>Вывод результатов смертности исходя из анамнеза.</li>
+    <li>Вывод дополнительных факторов для поддержки принятия решения врачом.</li>
+    <li>Отображение статистики с показателем процента риска смертности от фактора.</li>
  </ul>
 <h4>Основной стек технологий:</h4>
 <ul>
-	<li>HTML, SCSS, JavaScript, TypeScript, Python.</li>
-	<li>NodeJS 14</li>
-	<li>NestJS.</li>
+	<li>HTML, SCSS, TypeScript, Python</li>
+	<li>NestJS</li>
     <li>Vue3 (Quasar)</li>
-	<li>LESS, SASS, PostCSS.</li>
-	<li>Webpack, Babel.</li>
-	<li>Git.</li>
-	<li>Docker Compose.</li>  
+    <li>Flask</li>
+    <li>PyTorch, SKlearn, Catboost</li>
+	<li>Git</li>
+	<li>Docker Compose</li>  
  </ul>
 
 ## СРЕДА ЗАПУСКА
