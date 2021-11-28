@@ -38,7 +38,7 @@ export class MedicalHistoriesService {
   async createMock(createMedicalHistoryDto: CreateMedicalHistoryDto) {
     const newHistory = new this.medicalHistoryModel(createMedicalHistoryDto);
     const prediction = await this.httpService
-      .post<PredictionDto>('http://localhost:3001/predict', {
+      .post<PredictionDto>('http://classifier:3001/predict', {
         text: createMedicalHistoryDto.history,
       })
       .pipe(map((resp) => resp.data))
