@@ -21,17 +21,32 @@ export class MedicalHistoriesService {
 
   async create(createMedicalHistoryDto: CreateMedicalHistoryDto) {
     const newHistory = new this.medicalHistoryModel(createMedicalHistoryDto);
-    if (!newHistory.deathRisk) {
-      newHistory.deathRisk = Math.floor(Math.random() * 100) + 1;
-    }
-    if (newHistory.diagnoses.length == 0) {
-      const newDiagnosis = new this.diagnosisModel({
-        diagnosis: 'кашель',
-        influence: 10,
-        actions: '',
-      });
-      newHistory.diagnoses.push(newDiagnosis);
-    }
+    //Здесь должно быть общение с моделью
+
+    return await newHistory.save();
+  }
+
+  async createMock(createMedicalHistoryDto: CreateMedicalHistoryDto) {
+    const newHistory = new this.medicalHistoryModel(createMedicalHistoryDto);
+    newHistory.deathRisk = 90;
+    const newDiagnosis1 = new this.diagnosisModel({
+      diagnosis: 'кашель + головная боль',
+      influence: 5,
+      actions: 'Доп. обследование',
+    });
+    newHistory.diagnoses.push(newDiagnosis1);
+    const newDiagnosis2 = new this.diagnosisModel({
+      diagnosis: 'Отказ легкого + головная боль',
+      influence: 70,
+      actions: 'Доп. обследование',
+    });
+    newHistory.diagnoses.push(newDiagnosis2);
+    const newDiagnosis3 = new this.diagnosisModel({
+      diagnosis: 'Отказ легкого + кашель',
+      influence: 90,
+      actions: 'срочная реанимация',
+    });
+    newHistory.diagnoses.push(newDiagnosis3);
 
     return await newHistory.save();
   }
